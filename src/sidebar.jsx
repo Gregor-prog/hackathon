@@ -1,8 +1,9 @@
 // Home , dashboard, data visualization, Ai, About
-import Dashboard from "./dashboardbody";
+
 import { SidebarHeader, useSidebar } from "@/components/ui/sidebar";
 import { Calendar, Home, Inbox, Search, Settings,PanelsTopLeft } from "lucide-react"
 import "./index.css"
+import Dashboard from "./dashboardbody";
 
 import {
   Sidebar,
@@ -14,7 +15,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
+  SidebarTrigger
 } from "@/components/ui/sidebar"
+import { useState } from "react";
 
 // Menu items.
 const items = [
@@ -46,28 +49,35 @@ const items = [
 ]
 
 function AppSidebar(){
-  return <SidebarProvider className="bg-white">
-    <SideBar/>
-    <Dashboard/>
-  </SidebarProvider>
+  return (
+    <SidebarProvider className="absolute bg-white w-[100vw]">
+      <SideBar />
+      <main>
+        <SidebarTrigger className="relative text-[30px]"/>
+        {/* {children} */}
+      </main>
+      <Dashboard className="w-[100%] bg-[white]"/>
+    </SidebarProvider>
+  )
 }
 
 function SideBar() {
-  const {open, toggleSidebar} = useSidebar()
+  const { openMobile, toggleSidebar} = useSidebar();
 
   return (
-      <Sidebar open={open} className="bg-white">
-      <button onClick={toggleSidebar} className="p-2  rounded-md absolute w-[40px] left-[255px] text-black"><PanelsTopLeft/></button>
-      <SidebarHeader className="sidebar">
+    <Sidebar openMobile={openMobile} variant="floating" className="bg-white">
+        <SidebarHeader className="sidebar">
         <div>
-          <h1 className="text-[30px] font-serif font-semibold">Health</h1>
+          <h1 className="text-[30px] font-serif font-semibold m-0">Health</h1>
           <h1>dashboard</h1>
         </div>
       </SidebarHeader>
-      <SidebarContent className="bg-white/30 backdrop-filter backdrop-blur-md">
-        <SidebarGroup className="bg-white/30 backdrop-filter backdrop-blur-md ">
-          <SidebarGroupContent className="bg-white/30 backdrop-filter backdrop-blur-md">
-            <SidebarMenu className="bg-white/30 backdrop-filter backdrop-blur-md  ">
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel> Nav
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild className="p-[20px] bg-black text-white hover:bg-[#555555] hover:text-[#ffffff] my-[5px]">
