@@ -46,7 +46,7 @@ const items = [
 ]
 
 function AppSidebar(){
-  return <SidebarProvider className="">
+  return <SidebarProvider className="bg-white">
     <SideBar/>
     <Dashboard/>
   </SidebarProvider>
@@ -56,7 +56,7 @@ function SideBar() {
   const {open, toggleSidebar} = useSidebar()
 
   return (
-      <Sidebar open={open} className="sidebar">
+      <Sidebar open={open} className="bg-white">
       <button onClick={toggleSidebar} className="p-2  rounded-md absolute w-[40px] left-[255px] text-black"><PanelsTopLeft/></button>
       <SidebarHeader className="sidebar">
         <div>

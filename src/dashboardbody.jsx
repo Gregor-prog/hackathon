@@ -2,6 +2,8 @@
 import RealTemp from "./realtime_temp"
 import RealBeat from "./realtime_heartbeat"
 import RealOxy from "./realtime_oxyLevel"
+import Oxyheartmin from "./oxy-heart"
+import Aiprompt from "./aiprompt"
 
 function Dashboard(){
     return <div className="w-[100%]">
@@ -13,9 +15,9 @@ function Dashboard(){
         </div>
 
         <div className="grid grid-cols-2 gap-4 w-full max-w-[100%] mx-auto h-[400px]">
-  <div className="bg-blue-500 text-white p-4 text-center">Column 1, Row 1</div>
-  <div className="bg-green-500 text-white p-4 text-center row-span-2">Column 2, Row 1</div>
-  <div className="bg-red-500 text-white p-4 text-center">Column 1, Row 2</div>  
+  <div className=" text-white p-4 text-center"><Oxyheartmin/></div>
+  <div className=" text-white p-4 text-center row-span-2"><Aiprompt/></div>
+  <div className=" text-white p-4 text-center"><Oxyheartmin/></div>  
 </div>
 
 
