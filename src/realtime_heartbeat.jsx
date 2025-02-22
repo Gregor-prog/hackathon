@@ -20,7 +20,7 @@ function RealBeat(){
         <div className="flex flex-row items-center justify-evenly ">
             <p className="font-sans text-[#cfcdcd] sm:text-[25px] text-[15px]">HeartRate</p><br/>
             </div>
-        <h1 className="sm:text-[40px] text-center font-sans font-semibold text-[25px]">{data}bpm</h1>
+        <h1 className="sm:text-[40px] text-center font-sans font-semibold text-[20px] ">{data} bpm</h1>
     </div>
 }
 

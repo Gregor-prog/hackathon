@@ -19,7 +19,7 @@ function RealTemp(){
         <div className="flex flex-row items-center justify-evenly ">
             <p className="font-sans text-[#cfcdcd] sm:text-[25px] text-[15px]">Temperature</p><br/>
             </div>
-        <h1 className="sm:text-[40px] text-center font-sans font-semibold text-[25px]">{data}°C</h1>
+        <h1 className="sm:text-[40px] text-center font-sans font-semibold text-[19px]">{data}°C</h1>
     </div>
 }
 
