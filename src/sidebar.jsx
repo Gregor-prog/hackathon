@@ -53,7 +53,7 @@ function AppSidebar(){
     <SidebarProvider className="absolute bg-white w-[100vw]">
       <SideBar />
       <main>
-        <SidebarTrigger className="relative text-[30px]"/>
+        <SidebarTrigger className="relative text-[30px] text-black" />
         {/* {children} */}
       </main>
       <Dashboard className="w-[100%] bg-[white]"/>
