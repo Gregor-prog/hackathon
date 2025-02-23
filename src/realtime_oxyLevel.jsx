@@ -7,7 +7,7 @@ function RealOxy(){
     const [data, setData] = useState(null);
 
   useEffect(() => {
-    const dataRef = ref(database, "SensorData/OxygenLevel");
+    const dataRef = ref(database, "SensorData/Sp02");
     onValue(dataRef, (snapshot) => {
       const data = snapshot.val();
       setData(data);

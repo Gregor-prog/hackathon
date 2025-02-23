@@ -18,9 +18,6 @@ import {
 } from "@/components/ui/chart"
 import { useEffect,useState } from "react"
 
-useEffect(() =>{
-  
-})
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -43,6 +40,14 @@ const chartConfig = {
 }
 
 function Oxyheartmin() {
+
+  
+useEffect(() =>{
+  ()=>{
+
+  }
+},[])
+
   return (
     <Card>
       <CardHeader>

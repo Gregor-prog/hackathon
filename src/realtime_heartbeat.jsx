@@ -6,7 +6,7 @@ function RealBeat(){
     const [data, setData] = useState(null);
 
   useEffect(() => {
-    const dataRef = ref(database, "SensorData/heartRrate");
+    const dataRef = ref(database, "SensorData/heartRate");
     onValue(dataRef, (snapshot) => {
       const data = snapshot.val();
       setData(data);
