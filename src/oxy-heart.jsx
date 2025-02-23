@@ -16,6 +16,11 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { useEffect,useState } from "react"
+
+useEffect(() =>{
+  
+})
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },

@@ -8,7 +8,7 @@ function RealTemp(){
     const [data, setData] = useState(null);
 
   useEffect(() => {
-    const dataRef = ref(database, "Temperature");
+    const dataRef = ref(database, "SensorData/Temperature");
     onValue(dataRef, (snapshot) => {
       const data = snapshot.val();
       setData(data);
