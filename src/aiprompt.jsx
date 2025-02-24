@@ -3,8 +3,11 @@ import PromptAI from "./propmptAIbutton"
 // import { GoogleGenerativeAI } from "@google/generative-ai"
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState } from "react";
+// import ScatterBoxLoaderComponent from "./loadani"; 
+import { Mosaic } from "react-loading-indicators"
 function Aiprompt({prop}){
     const [promptl,setpromptl] = useState("")
+    const [load, setload] = useState(false)
     console.log(prop.map((obj) => obj.temperature ))
 
     async function prompt(){
@@ -32,7 +35,7 @@ patients data: ${JSON.stringify(prop.map((obj) => {
         "temperature":obj.temperature
     }
 }).reverse())}
-with the trend in patients health, with emphasis focused on the most latest and recent data,like the most latest data you can find the dataset and display the most latest data too, when is the latest date? and talk about the health trend
+with the trend in patients health, with emphasis focused on the most latest and recent data,and talk about the health trend
 **Quick Analysis**:
 1. 🔍 Identify 1-2 main concerns
 2. ⚠️ Highlight urgent issues (if any)
@@ -50,19 +53,28 @@ with the trend in patients health, with emphasis focused on the most latest and 
    - [Action 3]
 
 *Always consult a doctor for medical advice*"
-
+note: dont use amigeous medical terms, use terms that even the most naive person would understand, remember, you are talking to the patient and not a medical practitioner
 
 `;
 
     const result = await model.generateContent(prompt);
     console.log(result.response.text())
     result?setpromptl(result.response.text()): null;
+    Promptfunc()
+    }
+
+    function Promptfunc(){
+        console.log("propmptfunc")
+        setload(true)
+        return <>
+        {promptl == ""? <Mosaic color="black" size="medium" text="" textColor="" /> : <p className="text-black text-[20px]">{promptl}</p>}
+        </>
     }
 
 
     return <div className="bg-white shadow-xl sm:h-[100%] sm:text-[30px] w-[100%] rounded-t-[28px] rounded-bl-[17px] p-[30px] rounded-br-none flex flex-col items-center justify-around border border-[6px]">
         <PromptAI onClick={prompt}/>
-        {promptl == ""?<LifeLine color="black" size="medium" text="" textColor="" className="h-[10px] w-[10px]"/>:<p className="text-[15px] text-[black]">{promptl}</p>}
+        {load == false?<LifeLine color="black" size="medium" text="" textColor="" className="h-[10px] w-[10px]"/>:<Promptfunc/>}
         <div className="text-black">
             <p>AI prompt</p>
             <p>gives suggestions and advises based off of your vitals...</p>

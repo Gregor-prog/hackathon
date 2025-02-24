@@ -12,6 +12,7 @@ import TemperatureBar from "./temp_bar"
 import { ButtonWithIcon } from "./button"
 import {database} from "./firebase.js"
 import { ref, onValue } from "firebase/database";
+import Oxy_bar from "./oxy-heartbbar"
 
 function Dashboard(prop){
     const [heart, setheart] = useState(0)
@@ -65,6 +66,7 @@ function Dashboard(prop){
   <div className=" text-white p-4 text-center"><Oxyheartmin prop={prop.prop}/></div>
   <div className=" text-white p-4 text-center row-span-2"><Aiprompt prop={prop.prop}/></div>
   <div className=" text-white p-4 text-center"><TemperatureBar prop={prop.prop}/></div>  
+  <Oxy_bar prop={prop.prop}/>
   <Toaster />
 </div>
 
