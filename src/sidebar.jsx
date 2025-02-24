@@ -48,7 +48,7 @@ const items = [
   },
 ]
 
-function AppSidebar(){
+function AppSidebar({data}){
   return (
     <SidebarProvider className="absolute bg-white w-[100vw]">
       <SideBar />
@@ -56,7 +56,7 @@ function AppSidebar(){
         <SidebarTrigger className="relative text-[30px] text-black" />
         {/* {children} */}
       </main>
-      <Dashboard className="w-[100%] bg-[white]"/>
+      <Dashboard prop={data} className="w-[100%] bg-[white]" />
     </SidebarProvider>
   )
 }
