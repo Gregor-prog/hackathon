@@ -12,14 +12,13 @@ import TemperatureBar from "./temp_bar"
 import { ButtonWithIcon } from "./button"
 import {database} from "./firebase.js"
 import { ref, onValue } from "firebase/database";
-import Oxy_bar from "./oxy-heartbbar"
 
 function Dashboard(prop){
     const [heart, setheart] = useState(0)
     const [oxtl, setoxyl] = useState(0)
     const [temp, settemp] = useState(0)
 
-    async function post(){
+    async function Post(){
     const dataRef = ref(database, "SensorData/HeartRate");
     onValue(dataRef, (snapshot) => {
       const HeartRate = snapshot.val(); 
@@ -37,21 +36,33 @@ function Dashboard(prop){
       const Temperature= snapshot.val(); 
        settemp(Temperature)
     })
+
+    try {
+        if (temp < 1 || temp > 100) {
+            throw new Error("Temperature is not found");
+        }
+        if (heart < 1 || heart > 1000) {
+            throw new Error("Heart Rate is not found");
+        }
+        if (oxtl < 1 || oxtl > 100  ) {
+            throw new Error("Oxygen Level is not found");
+        }
+        
+        const response = await axios.post("https://health-vitals-api.onrender.com/postVitals", {
+            temperature: temp,
+            heartRate: heart,
+            OxygenLevel: oxtl
+        }, {
+            headers: { "Content-Type": "application/json" }
+        });
     
-        await fetch("https://health-vitals-api.onrender.com/postVitals", {
-            method:'POST',
-            headers: {"Content-Type" : "application/json"},
-            body:JSON.stringify({
-                temperature:temp,
-                heartRate:heart,
-                OxygenLevel:oxtl
-            })
-        }).then((e) => {
-            e.ok == false ? toast.error("an error occured"): toast.success("vitals added successfully")
-    }).catch((error) => {
-        toast.error("An error occured")
-        console.log(error)
-    })
+        console.log("Response:", response.data);
+    } catch (error) {
+        toast.error(error.message)
+        console.log(error.message)
+    }
+    
+
     }
 
 
@@ -61,12 +72,11 @@ function Dashboard(prop){
         <RealBeat/>
         <RealOxy/>
         </div>
-    <div><ButtonWithIcon onClick={post}/></div>
+    <div><ButtonWithIcon onClick={Post}/></div>
         <div className="sm:grid grid-cols-2 gap-4 w-full max-w-[100%] mx-auto sm:h-[400px] h-[300px]">
   <div className=" text-white p-4 text-center"><Oxyheartmin prop={prop.prop}/></div>
   <div className=" text-white p-4 text-center row-span-2"><Aiprompt prop={prop.prop}/></div>
   <div className=" text-white p-4 text-center"><TemperatureBar prop={prop.prop}/></div>  
-  <Oxy_bar prop={prop.prop}/>
   <Toaster />
 </div>
 

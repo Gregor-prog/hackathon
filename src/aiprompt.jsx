@@ -2,8 +2,7 @@ import { LifeLine } from "react-loading-indicators"
 import PromptAI from "./propmptAIbutton"
 // import { GoogleGenerativeAI } from "@google/generative-ai"
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { useState } from "react";
-// import ScatterBoxLoaderComponent from "./loadani"; 
+import { useState } from "react"; 
 import { Mosaic } from "react-loading-indicators"
 function Aiprompt({prop}){
     const [promptl,setpromptl] = useState("")

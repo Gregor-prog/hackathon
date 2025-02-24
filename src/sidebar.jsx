@@ -4,7 +4,8 @@ import { SidebarHeader, useSidebar } from "@/components/ui/sidebar";
 import { Calendar, Home, Inbox, Search, Settings,PanelsTopLeft } from "lucide-react"
 import "./index.css"
 import Dashboard from "./dashboardbody";
-
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import DataVisualization from "./dataVisualization";
 import {
   Sidebar,
   SidebarContent,
@@ -19,6 +20,7 @@ import {
 } from "@/components/ui/sidebar"
 import { useState } from "react";
 import AvatarDemo from "./avatar";
+import Aipromptpage from "./aipage";
 
 // Menu items.
 const items = [
@@ -34,7 +36,7 @@ const items = [
   },
   {
     title: "Data Visualization",
-    url: "#",
+    url: "/datavisuals",
     icon: Calendar,
   },
   {
@@ -50,6 +52,7 @@ const items = [
 ]
 
 function AppSidebar({data}){
+  console.log("sidebar" + data)
   return (
     <SidebarProvider className="absolute bg-white w-[100vw]">
       <SideBar />
@@ -58,7 +61,13 @@ function AppSidebar({data}){
         {/* {children} */}
       </main> <div>
       <div className="h-[50px] bg-[#000000] w-[100%]  mb-[30px] flex flex-row items-center justify-between p-[10px]"><AvatarDemo/> <p><p className="text-[10px]">Welcome</p> <p className="font-bold">User 567</p></p></div>
-      <Dashboard prop={data} className="w-[100%] bg-[white]" />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Dashboard prop={data} className="w-[100%] bg-[white]" />}/>
+          <Route path="/datavisuals" element={<DataVisualization prop={data} className="w-[100%] bg-[white]"/>}/>
+          <Route path="/AIpage" element={<Aipromptpage prop={data} className="w-[100%] bg-[white]"/>}/>
+        </Routes>
+      </BrowserRouter>
       </div>
     </SidebarProvider>
   )
