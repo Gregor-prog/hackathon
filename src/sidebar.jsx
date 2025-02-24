@@ -36,12 +36,12 @@ const items = [
   },
   {
     title: "Data Visualization",
-    url: "/datavisuals",
+    url: "https://dashboard-six-zeta-24.vercel.app/dataVisuals",
     icon: Calendar,
   },
   {
     title: "AI",
-    url: "/AIpage",
+    url: "https://dashboard-six-zeta-24.vercel.app/AIpage",
     icon: Search,
   },
   {

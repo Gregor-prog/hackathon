@@ -38,13 +38,13 @@ function Dashboard(prop){
     })
 
     try {
-        if (temp < 1 || temp > 100) {
+        if (temp < 1) {
             throw new Error("Temperature is not found");
         }
-        if (heart < 1 || heart > 1000) {
+        if (heart < 1) {
             throw new Error("Heart Rate is not found");
         }
-        if (oxtl < 1 || oxtl > 100  ) {
+        if (oxtl < 1) {
             throw new Error("Oxygen Level is not found");
         }
         
@@ -57,6 +57,7 @@ function Dashboard(prop){
         });
     
         console.log("Response:", response.data);
+        toast.success(response.message)
     } catch (error) {
         toast.error(error.message)
         console.log(error.message)
@@ -77,7 +78,7 @@ function Dashboard(prop){
   <div className=" text-white p-4 text-center"><Oxyheartmin prop={prop.prop}/></div>
   <div className=" text-white p-4 text-center row-span-2"><Aiprompt prop={prop.prop}/></div>
   <div className=" text-white p-4 text-center"><TemperatureBar prop={prop.prop}/></div>  
-  <Toaster />
+  <Toaster className="text-black"/>
 </div>
 
 
