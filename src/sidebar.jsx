@@ -64,8 +64,8 @@ function AppSidebar({data}){
       <BrowserRouter>
         <Routes>
           <Route index element={<Dashboard prop={data} className="w-[100%] bg-[white]" />}/>
-          <Route path="https://dashboard-six-zeta-24.vercel.app/datahttps://dashboard-six-zeta-24.vercel.app/dataVisuals" element={<DataVisualization prop={data} className="w-[100%] bg-[white]"/>}/>
-          <Route path="https://dashboard-six-zeta-24.vercel.app//AIpage" element={<Aipromptpage prop={data} className="w-[100%] bg-[white]"/>}/>
+          <Route path="https://dashboard-six-zeta-24.vercel.app/dataVisuals" element={<DataVisualization prop={data} className="w-[100%] bg-[white]"/>}/>
+          <Route path="https://dashboard-six-zeta-24.vercel.app/AIpage" element={<Aipromptpage prop={data} className="w-[100%] bg-[white]"/>}/>
         </Routes>
       </BrowserRouter>
       </div>
