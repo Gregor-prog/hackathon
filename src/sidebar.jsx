@@ -18,6 +18,7 @@ import {
   SidebarTrigger
 } from "@/components/ui/sidebar"
 import { useState } from "react";
+import AvatarDemo from "./avatar";
 
 // Menu items.
 const items = [
@@ -55,8 +56,10 @@ function AppSidebar({data}){
       <main>
         <SidebarTrigger className="relative text-[30px] text-black" />
         {/* {children} */}
-      </main>
+      </main> <div>
+      <div className="h-[50px] bg-[#000000] w-[100%]  mb-[30px] flex flex-row items-center justify-between p-[10px]"><AvatarDemo/> <p><p className="text-[10px]">Welcome</p> <p className="font-bold">User 567</p></p></div>
       <Dashboard prop={data} className="w-[100%] bg-[white]" />
+      </div>
     </SidebarProvider>
   )
 }

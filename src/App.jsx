@@ -26,7 +26,6 @@ function App(){
   
   
   return <div className=" bg-[white] w-[100vw]">
-  {console.log(info)}
   {info.length === 0 ? <DashboardSkeleton/>: < AppSidebar data={info.data}/>}
   </div>
 }

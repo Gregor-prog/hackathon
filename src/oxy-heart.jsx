@@ -30,7 +30,7 @@ function Oxyheartmin({prop}) {
       "BPM":obj.heartRrate,
       "SpO2": obj.oxygenLevel,
     }
-  }).reverse() : null
+  }) : null
   console.log(newData)
 const chartData = newData
 
@@ -78,7 +78,7 @@ const chartConfig = {
         <div className="flex gap-2 font-medium leading-none">
           {newData?.[0] ? (
             <>
-              Latest: {newData[0].BPM} BPM /{' '}
+              Latest: {newData.reverse()[newData.length -1].BPM} BPM /{' '}
               {newData[0].SpO2}% SpO2
               <TrendingUp className="h-4 w-4" />
             </>
