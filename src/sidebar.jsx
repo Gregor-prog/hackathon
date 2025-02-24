@@ -1,11 +1,10 @@
 // Home , dashboard, data visualization, Ai, About
-
 import { SidebarHeader, useSidebar } from "@/components/ui/sidebar";
-import { Calendar, Home, Inbox, Search, Settings,PanelsTopLeft } from "lucide-react"
+import { Calendar, Home, Inbox, Search, Settings} from "lucide-react"
 import "./index.css"
 import Dashboard from "./dashboardbody";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import DataVisualization from "./dataVisualization";
+import DataVisualization from "./dataVisualization";  
 import {
   Sidebar,
   SidebarContent,
@@ -21,14 +20,10 @@ import {
 import { useState } from "react";
 import AvatarDemo from "./avatar";
 import Aipromptpage from "./aipage";
+import AboutPage from "./about";
 
 // Menu items.
 const items = [
-  {
-    title: "Home",
-    url: "/",
-    icon: Home,
-  },
   {
     title: "Dashboard",
     url: "/",
@@ -46,7 +41,7 @@ const items = [
   },
   {
     title: "About",
-    url: "/",
+    url: "/About",
     icon: Settings,
   },
 ]
@@ -66,6 +61,7 @@ function AppSidebar({data}){
           <Route index element={<Dashboard prop={data} className="w-[100%] bg-[white]" />}/>
           <Route path="/dataVisuals" element={<DataVisualization prop={data} className="w-[100%] bg-[white]"/>}/>
           <Route path="/AIpage" element={<Aipromptpage prop={data} className="w-[100%] bg-[white]"/>}/>
+          <Route path="/About" element={<AboutPage prop={data} className="w-[100%] bg-[white]"/>}/>
         </Routes>
       </BrowserRouter>
       </div>
