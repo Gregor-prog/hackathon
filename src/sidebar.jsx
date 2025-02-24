@@ -41,7 +41,7 @@ const items = [
   },
   {
     title: "AI",
-    url: "#",
+    url: "/AIpage",
     icon: Search,
   },
   {
