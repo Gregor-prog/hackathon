@@ -66,19 +66,31 @@ note: dont use amigeous medical terms, use terms that even the most naive person
         console.log("propmptfunc")
         setload(true)
         return <>
-        {promptl == ""? <Mosaic color="black" size="medium" text="" textColor="" /> : <p className="text-black text-[20px]">{promptl}</p>}
+        {promptl == ""? <Mosaic color="black" size="medium" text="" textColor="" /> : <p className="text-whitw text-[20px]">{promptl}</p>}
         </>
     }
 
 
-    return <div className="bg-white shadow-xl sm:h-[100%] sm:text-[30px] w-[100%] rounded-t-[28px] rounded-bl-[17px] p-[30px] rounded-br-none flex flex-col items-center justify-around border border-[6px]">
-        <PromptAI onClick={prompt}/>
-        {load == false?<LifeLine color="black" size="medium" text="" textColor="" className="h-[10px] w-[10px]"/>:<Promptfunc/>}
-        <div className="text-black">
-            <p>AI prompt</p>
-            <p>gives suggestions and advises based off of your vitals...</p>
-        </div>
-    </div>
+    return <div className="w-full h-auto bg-background shadow-md rounded-t-2xl rounded-bl-lg rounded-br-none p-6 flex flex-col items-center justify-center gap-4 border-2 border-primary">
+  <PromptAI onClick={prompt} />
+  
+  {load ? (
+    <Promptfunc className="text-white"/>
+  ) : (
+    <LifeLine 
+      color="white" 
+      size="md" 
+      className="h-4 w-4 text-muted-foreground"
+    />
+  )}
+
+  <div className="text-center space-y-1">
+    <p className="text-sm font-medium text-foreground">AI Health Assistant</p>
+    <p className="text-sm text-muted-foreground">
+      Provides personalized health insights based on your vital signs
+    </p>
+  </div>
+</div>
 }
 
 export default Aiprompt
