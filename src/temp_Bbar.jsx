@@ -29,7 +29,7 @@ const chartData = [
 
 
 function Temp_Bbar({prop}) {
-    let newData = prop != undefined? prop.map((obj) => {
+    let newData = prop != undefined? prop.splice(0,9).map((obj) => {
         return {
           "Time" : obj.createdAt.slice(8, 10) + "/" +  obj.createdAt.slice(5, 7) + " " + obj.createdAt.slice(11, 13),
           "Temperature":obj.temperature,
@@ -47,8 +47,8 @@ function Temp_Bbar({prop}) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Label</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Temperature Bar</CardTitle>
+        <CardDescription>Latest vital trends</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -83,12 +83,7 @@ function Temp_Bbar({prop}) {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
+      
       </CardFooter>
     </Card>
   );

@@ -20,8 +20,7 @@ import { Card } from "@/components/ui/card"
         {/* Your second chart component goes here */}
         <Temp_Bbar prop={prop.prop}/>
       </Card>
-
-      {/* --- Table Slot --- */}
+      
       <Card className="p-4">
         {/* Your table component goes here */}
         <Tablecom  prop={prop.prop}/>

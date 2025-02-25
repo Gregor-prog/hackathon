@@ -57,7 +57,7 @@ function Dashboard(prop){
         });
     
         console.log("Response:", response.data);
-        toast.success(response.message)
+        toast.success(response.data.message)
     } catch (error) {
         toast.error(error.message)
         console.log(error.message)

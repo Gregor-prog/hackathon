@@ -12,6 +12,7 @@ import {
   
 function Tablecom({prop}) {
     let count = 0
+    console.log(prop)
     const data = prop.map((obj) => {
         count += 1
         return {
@@ -22,7 +23,6 @@ function Tablecom({prop}) {
             Time: obj.createdAt.slice(0, 10) + " " + obj.createdAt.slice(11, 16)
         }
     })
-    console.log(data)
 
 
     return (
@@ -34,6 +34,7 @@ function Tablecom({prop}) {
             <TableHead>Heart Rate (BPM)</TableHead>
             <TableHead>Oxygen Level (%)</TableHead>
             <TableHead className="text-right">Temperature (°C)</TableHead>
+            <TableHead className="text-right">Recorded Time</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -43,14 +44,12 @@ function Tablecom({prop}) {
             <TableCell>{reading.heartRate} BPM</TableCell>
             <TableCell>{reading.oxygenLevel} %</TableCell>
             <TableCell>{reading.temperature} °C</TableCell>
-            <TableCell className="text-right">{reading.time}</TableCell>
+            <TableCell className="text-right">{reading.Time}</TableCell>
           </TableRow>
         ))}
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell colSpan={3}>Total</TableCell>
-            <TableCell className="text-right">$2,500.00</TableCell>
           </TableRow>
         </TableFooter>
       </Table>
