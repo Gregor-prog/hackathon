@@ -19,10 +19,10 @@ float heartRate = 0;
 float spO2 = 0;
 
 // WiFi & Firebase Config
-#define WIFI_SSID "Emmanuel"
-#define WIFI_PASSWORD "Emmanuel1"
-#define FIREBASE_API_KEY "AIzaSyAzm5Z3INQT-GHOLeFGPJSJ2WlS-F_EEvA"
-#define FIREBASE_DB_URL "https://hackathon-rtdb-b0e7f-default-rtdb.firebaseio.com/"
+#define WIFI_SSID "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
+#define FIREBASE_API_KEY "YOUR_FIREBASE_API_KEY"
+#define FIREBASE_DB_URL "YOUR_FIREBASE__DB_URL"
 
 FirebaseData fbdo;
 FirebaseAuth auth;
